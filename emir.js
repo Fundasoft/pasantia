@@ -8,3 +8,4 @@ promise.then(
     result => alert(result),
     error => alert(error) 
 );
+console.log("Hello World");
