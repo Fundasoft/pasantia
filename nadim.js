@@ -1,1 +1,4 @@
-console.log('Hola a Todos! o/')
+let promesa = new Promise( f =>{
+    setTimeout(()=>{console.log('buenas')},1000);
+});
+
