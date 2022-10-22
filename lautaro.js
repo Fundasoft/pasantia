@@ -1,2 +1,1 @@
-console.log('Lautaro');
-console.log('de nuevo');
+console.log('hola');

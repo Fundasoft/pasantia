@@ -6,3 +6,5 @@ function Hello(){
 
 
 console.log("Salute I'm Daniel");
+
+console.log("Hello World");
