@@ -1,3 +1,9 @@
+
+bundle.js
+bundle.css
+bundle.js.map
+package-lock.json
+
 # Logs
 logs
 *.log
