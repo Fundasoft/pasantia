@@ -1,5 +1,7 @@
 import Cards from './Cards.svelte';
 
+//Agrego comentario
+
 var app = {};
 
 app.cards = function(html,cardsDatos) {
