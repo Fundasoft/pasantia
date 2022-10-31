@@ -1,5 +1,5 @@
 
-app.cards(document.body, [
+app.cards(document.body,[
     {
         cardTitle: 'Primary card title',
         textColor: 'text-white',
