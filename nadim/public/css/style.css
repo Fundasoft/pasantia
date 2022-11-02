@@ -2,7 +2,7 @@
     flex-wrap: wrap;
     align-content: center;
     display: flex;
-    background-color: greenyellow;
+    background-color: green;
     border-radius: 50%;
     font-size: 30px;
     width: 77px;
@@ -25,4 +25,15 @@
     gap: 20px;
 }
 
+.subtitle{
+    color: green;
+    font-size: 15px;
+}
 
+.title{
+    font-size: 2rem;
+}
+
+#cardIcon{
+    color: #fff;
+}
