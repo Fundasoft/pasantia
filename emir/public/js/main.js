@@ -1,4 +1,4 @@
-
+/*
 app.cards(document.body,[
     {
         cardTitle: 'Primary card title',
@@ -40,5 +40,6 @@ app.cards(document.body,[
         textColor: 'text-white',
         bgColor: 'bg-dark',
     },
-]);
+]);*/
 
+app.intro(document.body)
