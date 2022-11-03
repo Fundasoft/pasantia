@@ -1,0 +1,39 @@
+.icon{
+    flex-wrap: wrap;
+    align-content: center;
+    display: flex;
+    background-color: green;
+    border-radius: 50%;
+    font-size: 30px;
+    width: 77px;
+    height: 77px;
+}
+*,::after,::before{
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+}
+
+.allContent{
+    display: flex;
+    gap:20px;
+}
+
+.vstack{
+    gap: 20px;
+}
+
+.subtitle{
+    color: green;
+    font-size: 15px;
+}
+
+.title{
+    font-size: 2rem;
+}
+
+#cardIcon{
+    color: #fff;
+}

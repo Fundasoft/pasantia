@@ -1,44 +1,27 @@
-
 app.cards(document.body,[
     {
-        cardTitle: 'Primary card title',
+        cardTitle: 'Market Analysis',
+        cardSubTitle:'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia',
         textColor: 'text-white',
-        bgColor: 'bg-primary',
+        iconCard: "bi bi-graph-up-arrow",
     },
     {
-        cardTitle: 'Secondary card title',
+        cardTitle: 'Accounting Advisor',
+        cardSubTitle:'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia',
         textColor: 'text-white',
-        bgColor: 'bg-secondary',
+        iconCard: "bi bi-file-person"
     },
     {
-        cardTitle: 'Success card title',
+        cardTitle: 'General Consultancy',
+        cardSubTitle:'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia',
         textColor: 'text-white',
-        bgColor: 'bg-success',
+        iconCard: "bi bi-people-fill",
     },
     {
-        cardTitle: 'Danger card title',
-        textColor: 'text-white',
-        bgColor: 'bg-danger',
-    },
-    {
-        cardTitle: 'Warning card title',
+        cardTitle: 'Structured Assestment',
+        cardSubTitle:'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia',
         textColor: 'text-dark',
-        bgColor: 'bg-warning',
-    },
-    {
-        cardTitle: 'Info card title',
-        textColor: 'text-dark',
-        bgColor: 'bg-info',
-    },
-    {
-        cardTitle: 'Light card title',
-        textColor: 'text-dark',
-        bgColor: ' bg-light',
-    },
-    {
-        cardTitle: 'Dark card title',
-        textColor: 'text-white',
-        bgColor: 'bg-dark',
+        iconCard: "bi bi-calculator",
     },
 ]);
 
