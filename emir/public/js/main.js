@@ -42,4 +42,23 @@ app.cards(document.body,[
     },
 ]);*/
 
-app.intro(document.body)
+app.intro(document.body, {
+    imagen: '', titulo: '', texto: '', links: [
+        {
+            name: 'intro',
+            url: ''
+        },
+        {
+            name: 'work',
+            url: ''
+        },
+        {
+            name: 'about',
+            url: ''
+        },
+        {
+            name: 'contact',
+            url: ''
+        }
+    ]
+})
