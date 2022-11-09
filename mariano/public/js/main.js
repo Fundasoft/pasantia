@@ -1,5 +1,5 @@
-/*
-app.cards(document.body,[
+
+app.cards(document.body, [
     {
         cardTitle: 'Primary card title',
         textColor: 'text-white',
@@ -40,25 +40,5 @@ app.cards(document.body,[
         textColor: 'text-white',
         bgColor: 'bg-dark',
     },
-]);*/
+]);
 
-app.intro(document.body, {
-    imagen: '', titulo: '', texto: '', links: [
-        {
-            name: 'intro',
-            url: ''
-        },
-        {
-            name: 'work',
-            url: ''
-        },
-        {
-            name: 'about',
-            url: ''
-        },
-        {
-            name: 'contact',
-            url: ''
-        }
-    ]
-})
