@@ -1,36 +1,48 @@
-const MongoClient = require('mongodb').MongoClient;
-const client = new MongoClient("mongodb://localhost:27017");
+require('dotenv').config()
 
-client.connect().then(function(){
+const { MongoClient } = require("mongodb");
+const uri =  process.env.MONGODB_URI
 
-	const db = client.db("pasantia"); // base de dato
+const client = new MongoClient(uri);
 
-	// conectado
-	db.createCollection("tabla").catch(e=>e).then( () => { // collection
+async function run() {
+	try {
+	  const database = client.db('pasantia');
+	  database.collection('tabla');
+
+	  let fila = {
+		propiedad:'beta',
+		numero:Math.random(), 
+		nuevo:[Math.random()]
+	};
+	/* database.collection("tabla").insertOne(fila).then( () => console.log('create') ).catch( err => console.log(err) ); */
+
+	let query = {}
+
+	await database.collection("tabla").find(query).toArray().then( datos => console.log('read',datos) );
+
+	// 1 - read buscar los numeros mayores a 0.5
 	
-		// CRUD = crear + read + update + delete
+	const ejercicioRead1 = await database.collection("tabla").find({numero:{$lt:0.5}}).toArray()
 
-		// create
-		let fila = {
-			propiedad:'alfa',
-			numero:Math.random(), 
-			nuevo:[Math.random()]
-		}; // dato = document = fila
-		db.collection("tabla").insertOne(fila).then( () => console.log('create') ).catch( err => console.log(err) );
-		
-		// read
-		let query = {}; // consulta = edad > 10
-		db.collection("tabla").find(query).toArray().then( datos => console.log('read',datos) );
-		
-		// 1 - read buscar los numeros mayores a 0.5
+	// 2 - read buscar solo la columna numero
 
-		// 2 - read buscar solo la columna numero
+	const ejercicioRead2 = await database.collection("tabla").find({numero:0.8636266996061197}, {projection: {numero:1, _id:0}}).toArray()
 
-		// 3 - read a su antojo
+	// 3 - read a su antojo
 
-		// update
+	const ejercicioRead3 = await database.collection("tabla").find({propiedad:"alfa"}, {sort:{numero:1}}).toArray()
 
-		// delete
-	
-	});
-}).catch(err => console.log(err));
+	// update
+	const ejercicioUpdate = await database.collection("tabla").updateOne({numero:0.8636266996061197}, {$set:{nuevaPropiedad:"nueva"}})
+
+	// delete
+
+	const ejercicioDelete = await database.collection("tabla").deleteOne({propiedad:"beta"})
+
+	} finally {
+	  // Ensures that the client will close when you finish/error
+	  await client.close();
+	}
+  }
+  run().catch(console.dir);

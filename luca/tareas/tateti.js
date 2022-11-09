@@ -123,7 +123,7 @@ function movimientoValido(movimiento,tablero){
 }
 
 function esElFinDeJuego(tablero){
-	/* Esta funcion no haria falta */
+	/* Esta funcion no haria falta porque el juego tiene 3 posibilidades: Ganar, perder y Empatar. En las funciones hay empate y hay tateti se verifican esas 3 posibilidades, por lo tanto tambien se verifica si es el fin del juego. */
 	// utilizar: hayTateti(tablero) + tablero completo?
 }
 
