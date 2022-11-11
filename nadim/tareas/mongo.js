@@ -19,7 +19,7 @@ client.connect().then(function(){
 		// };
 
 		// dato = document = fila
-		// db.collection("tabla").insertOne(fila).then( () => console.log('create') ).catch( err => console.log(err) );
+		// db.collection("tabla").insertOne(persona).then( () => console.log('create') ).catch( err => console.log(err) );
 
 		// create cantidad
 
@@ -49,8 +49,7 @@ client.connect().then(function(){
 		// let query = {numero:{$gt:0.5}};
 		// db.collection("tabla").find(query).toArray().then( datos => console.log('read',datos));
 
-
-		// 2 - read buscar solo la columna numero // con .project basicamente podriamos filtrar por "columnas"
+		//2 - read buscar solo la columna numero // con .project basicamente podriamos filtrar por "columnas"
 		// db.collection("tabla").find({}).project({numero:1}).toArray().then( datos => console.log('read',datos));
 
 		// 3 - read a su antojo
