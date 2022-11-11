@@ -1,0 +1,24 @@
+.tamaño {
+    height: 75vh;
+}
+
+.contenido {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 65vh;
+
+
+}
+
+.contenedor_principal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contenedor_textos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
