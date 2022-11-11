@@ -14,7 +14,16 @@ body {
 }
 
 .bgimg {
-    background-image: url('../images/bd.jpg');
+    background: url(../images/bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    color: #fff;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .left {

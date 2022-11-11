@@ -1,15 +1,24 @@
-import Cards from './Cards.svelte';
+//import Cards from './Cards.svelte';
+import Aerial from './Aerial.svelte';
 
 //Agrego comentario
 
 var app = {};
 
-app.cards = function(html,cardsDatos) {
+/* app.cards = function(html,cardsDatos) {
 	return new Cards({
 		target: html,
 	    props: {cardsDatos},
 	})
 	
 }
+*/
 
-export default app;
+app.aerial = function(html,datos) {
+	return new Aerial({
+		target: html,
+	    props: {datos},
+	})
+	
+}
+export default app; 
