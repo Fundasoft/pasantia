@@ -1,15 +1,7 @@
-// facu
+import App from "./App.svelte";
 
-import Cards from './Cards.svelte';
-
-var app = {};
-
-app.cards = function(html,cardsDatos) {
-	return new Cards({
-		target: html,
-	    props: {cardsDatos},
-	})
-	
-}
+const app = new App({
+  target: document.body,
+});
 
 export default app;
