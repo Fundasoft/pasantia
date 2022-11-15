@@ -24,24 +24,66 @@
 <body>
 	<header id="header" style="background-image: url(images/desca.jpg)" class="img-fluid mx-auto d-block h">
 		<!-- <img src="images/desca.jpg" alt="banner" class="rounded justify-content-center"> -->
-		<div class="tamaño">
-			<div class="contenedor_principal">
-				<a href="index.html" class="contenedor_principal">
-					<strong class="p-1 mb-1 bg-white text-dark rounded-4">Forty</strong>
-					<span style="color: white">BY HTML5 UP</span>
-					<a href="#menu" class="p-3" style="color: white">Menu</a>
+		<div class="container-fluid tamaño">
+			<div class="row contenedor_principal">
+				<div class="col">
+					<a href="index.html">
+						<strong class="p-1 mb-1 bg-white text-dark rounded-4">Forty</strong>
+						<span class="text">BY HTML5 UP</span>
+					</a>
+				</div>
 
-				</a>
+				<!-- <nav> -->
+				<div class="col d-flex justify-content-end align-items-center ">
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">MENU</button> 
+					<!-- Modal -->
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+						aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									...
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-primary">Save changes</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor"
+						class="bi bi-list" viewBox="0 0 16 16">
+						<path fill-rule="evenodd"
+							d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+					</svg>
+					<!-- <div class="hamburguesa">
+						<span class="barra">s</span>
+						<span class="barra">s</span>
+						<span class="barra">s</span>
+						</div> -->
+					<!-- <div class="modal-dialog modal-sm"></div> -->
+				</div>
+
+				<!-- </nav> -->
+
+
 			</div>
 
 
+
 			<div class="contenido">
-				<h1 style="color: white" class="linea">
+				<h1 class="linea">
 					Hi, my name is Forty
 				</h1>
 
 				<div class="contenedor_textos">
-					<p style="color: white">
+					<p>
 						A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
 						<br>
 						AND RELEASED UNDER THE CREATIVE COMMONS.
@@ -50,15 +92,12 @@
 					<button>
 						<a href="#one" class="button next scrolly">GET STARTED</a>
 					</button>
-
 				</div>
-
 			</div>
-
 		</div>
 
-
 	</header>
+
 
 	<main>
 		<div id="main" class="col-md">
@@ -70,9 +109,9 @@
 							<img class="card-img-top img-fluid" src="images/pic01.jpg" alt="card image 1">
 							<div class="card-img-overlay">
 								<h3 class="card-title c">
-									<a href="landing.html" class="link" style="color: white">Casual</a>
+									<a href="landing.html" class="link text">Casual</a>
 								</h3>
-								<p class="card-text justify-content-center" style="color: white">FEUGIAT AAMET TEMPUS
+								<p class="card-text justify-content-center">FEUGIAT AAMET TEMPUS
 								</p>
 							</div>
 						</div>
@@ -82,91 +121,87 @@
 							<img class="card-img-top" src="images/pic02.jpg" alt="card image 2">
 							<div class="card-img-overlay">
 								<h3 class="card-title">
-									<a href="landing.html" class="link" style="color: white">The City</a>
+									<a href="landing.html" class="link text">The City</a>
 								</h3>
-								<p class="card-text" style="color: white">FEUGIAT AAMET TEMPUS</p>
+								<p class="card-text">FEUGIAT AAMET TEMPUS</p>
 							</div>
 						</div>
 					</div>
 
 
 				</div>
-		</div>
 
 
-		<div class="row">
-			<div class="col-9">
-				<div class="card" style="width:450px">
-					<img class="card-img-top" src="images/pic03.jpg" alt="card image 3">
-					<div class="card-img-overlay">
-						<h3 class="card-title">
-							<a href="landing.html" class="link" style="color: white">Montañas</a>
-						</h3>
-						<p class="card-text" style="color: white">FEUGIAT AAMET TEMPUS</p>
+				<div class="row">
+					<div class="col-7">
+						<div class="card">
+							<img class="card-img-top" src="images/pic03.jpg" alt="card image 3">
+							<div class="card-img-overlay">
+								<h3 class="card-title">
+									<a href="landing.html" class="link text">Montañas</a>
+								</h3>
+								<p class="card-text">FEUGIAT AAMET TEMPUS</p>
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
 
-			<div class="col-3">
-				<div class="card" style="width:450px">
-
-					<img class="card-img-top" src="images/pic04.jpg" alt="card image 4">
-					<div class="card-img-overlay">
-						<h3 class="card-title">
-							<a href="landing.html" class="link" style="color: white">Lobo</a>
-						</h3>
-						<p class="card-text" style="color: white">FEUGIAT AAMET TEMPUS</p>
+					<div class="col-5">
+						<div class="card">
+							<img class="card-img-top" src="images/pic04.jpg" alt="card image 4">
+							<div class="card-img-overlay">
+								<h3 class="card-title">
+									<a href="landing.html" class="link text">Lobo</a>
+								</h3>
+								<p class="card-text">FEUGIAT AAMET TEMPUS</p>
+							</div>
+						</div>
 					</div>
+
 				</div>
-			</div>
 
-		</div>
-
-		<div class="row">
-			<div class="col">
-				<div class="card" style="width:450px">
-					<img class="card-img-top" src="images/pic05.jpg" alt="card image 5">
-					<div class="card-img-overlay">
-						<h3 class="card-title">
-							<a href="landing.html" class="link" style="color: white">Escaleras</a>
-						</h3>
-						<p class="card-text" style="color: white">FEUGIAT AAMET TEMPUS</p>
+				<div class="row ">
+					<div class="col-5">
+						<div class="card">
+							<img class="card-img-top" src="images/pic05.jpg" alt="card image 5">
+							<div class="card-img-overlay">
+								<h3 class="card-title">
+									<a href="landing.html" class="link text">Escaleras</a>
+								</h3>
+								<p class="card-text">FEUGIAT AAMET TEMPUS</p>
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
 
-			<div class="col">
-				<div class="card" style="width:450px">
-					<img class="card-img-top" src="images/pic06.jpg" alt="card image 6">
-					<div class="card-img-overlay">
-						<h3 class="card-title">
-							<a href="landing.html" class="link" style="color: white">Fotografia</a>
-						</h3>
-						<p class="card-text" style="color: white">FEUGIAT AAMET TEMPUS</p>
+					<div class="col-7">
+						<div class="card">
+							<img class="card-img-top" src="images/pic06.jpg" alt="card image 6">
+							<div class="card-img-overlay">
+								<h3 class="card-title">
+									<a href="landing.html" class="link text">Fotografia</a>
+								</h3>
+								<p class="card-text">FEUGIAT AAMET TEMPUS</p>
+							</div>
+						</div>
 					</div>
+
 				</div>
-			</div>
+			</section>
+			<section id="two">
+				<div class="inner">
+					<header class="major">
+						<h2>Masa Libero</h2>
 
-		</div>
-
-
-		</section>
-		<section id="two">
-			<div class="inner">
-				<header class="major">
-					<h2>Masa Libero</h2>
-
-				</header>
-				<p class="m-0px 0px 2em">Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero.
-					Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur
-					ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et
-					orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed
-					nunc rhoncus amet pharetra et feugiat tempus.</p>
-				<ul>
-					<button>GET STARTED</button>
-				</ul>
-			</div>
-		</section>
+					</header>
+					<p class="m-0px 0px 2em">Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero.
+						Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur
+						ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et
+						orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed
+						nunc rhoncus amet pharetra et feugiat tempus.</p>
+					<ul>
+						<button>GET STARTED</button>
+					</ul>
+				</div>
+			</section>
 		</div>
 	</main>
 
