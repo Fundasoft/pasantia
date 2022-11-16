@@ -17,6 +17,14 @@ var tablero = [ // TAD = lenguaje ayuda a entender como representar mejor el pro
 
 var turno = CRUZ, movimiento = 0;
 
+var posicion = []; // Guarda lo ingresado por el usuario
+
+var tableroInicial = [
+	[0,0,0],
+	[0,0,0],
+	[0,0,0]
+];
+
 // analogia con la web??
 // que pasa si cambio el TAD
 
@@ -24,9 +32,10 @@ var turno = CRUZ, movimiento = 0;
 // vista
 //-------------------------------------------------------------------
 
-function dibujarTabler(tablero){
-	// biujar el tablero
-	console.log(tablero);
+function dibujarTablero(tablero){
+	// dibujar el tablero
+	//console.log(tablero);
+	console.log('f   columnas\n' + 'i    0,1,2\n' + 'l 0 [' + tablero[0] + ']\n' + 'a 1 [' + tablero[1] + ']\n' + 's 2 [' + tablero[2] + ']');
 }
 
 //-------------------------------------------------------------------
@@ -35,14 +44,13 @@ function dibujarTabler(tablero){
 
 const prompt = require('prompt');
 
-prompt.start();
-
 function cambiarTurno(){
 	if(turno==CRUZ){
 		turno = CIRCULO; 
 	}else{
 		turno = CRUZ;
-	}	
+	}
+	jugar(tablero);	
 }
 
 // Indica si hay tateti en el tablero
@@ -71,6 +79,7 @@ function hayTateti(tablero){
 		return true; //diagonal 1
 	}
 	else if	(tablero[0][2]===tablero[1][1]&&tablero[0][2]===tablero[2][0]&&tablero[0][2]!==0){
+		prompt.stop();
 		return true; //diagonal 2
 	}
 	else {
@@ -81,6 +90,7 @@ function hayTateti(tablero){
 // Indica si el tablero esta completo
 function hayEmpate(tablero){
 	if (tablero[0][0]!==0 && tablero[0][1]!==0 && tablero[0][2]!==0 && tablero[1][0]!==0 && tablero[1][1]!==0 && tablero[1][2]!==0 && tablero[2][0]!==0 && tablero[2][1]!==0 && tablero[2][2]!==0){
+		prompt.stop();
 		return true; //todos distintos de 0
 	}
 	else {
@@ -90,7 +100,13 @@ function hayEmpate(tablero){
 
 // Indica si el movimiento es valido
 function movimientoValido(movimiento,tablero){
-	
+	if(tablero[movimiento[0]][movimiento[1]]!==0){
+		return true;
+	}
+	else {
+		console.log('Ese lugar ya fue utilizado');
+		return false;
+	}
 }
 
 function esElFinDeJuego(tablero){
@@ -107,65 +123,90 @@ function esElFinDeJuego(tablero){
 	}
 }
 
-function mover(movimiento,tablero,pieza){
-
+function mover(movimiento,tablero,turno){
+	tablero[movimiento[0]][movimiento[1]]=turno
+	return true;
 }
 
 function solicitarMovimiento(){
 
-	let position = [];
+    let properties = [
+        {
+            name: 'fila',
+            validator: /^[0-2]$/,
+            warning: 'Debe ingresar una combinación valida. Recuerde que sólo existen las columnas 0, 1 y 2 y las filas 0, 1 y 2.'
+        },
+        {
+            name: 'columna',
+            validator: /^[0-2]$/,
+            warning: 'Debe ingresar una combinación valida. Recuerde que sólo existen las columnas 0, 1 y 2 y las filas 0, 1 y 2.'
+        },
 
-	let properties = [
-		{
-			name: 'position',
-			validator: /^[0-2\d-]+$/,
-			warning: 'Debe ingresar una combinación valida. Recuerde que sólo existen las columnas 0, 1 y 2 y las filas 0, 1 y 2.'
-		}
-	]
-	console.log('Por favor ingrese un lugar donde colocar la pieza. Seleccione primero la columna. Por ejemplo 0, 1 o 2')
-	prompt.get(properties, function (err, result) {
-		if (err) {
-		  return onErr(err);
-		}
-		console.log('Command-line input received:');
-		position[0] = result.position;
-	});
+    ]
+    console.log('Por favor ingrese un lugar donde colocar la pieza. Seleccione primero la fila y posteriormente la columna. Por ejemplo 0, 1 o 2');
+    prompt.get(properties, function (err, result) {
+        if (err) {
+            return onErr(err);
+        }
+        console.log('Command-line input received:');
+        posicion[0] = Number(result.fila);
+        posicion[1] = Number(result.columna);
+        console.log('Se seleccionó: ',posicion);
+		return posicion;
+    });
 
-	console.log('Por favor ingrese un lugar donde colocar la pieza. Seleccione ahora la fila. Por ejemplo 0, 1 o 2')
-	prompt.get(properties, function (err, result) {
-		if (err) {
-		return onErr(err);
-		}
-		console.log('Command-line input received:');
-		position[1] = result.position;
-	});
-	  
-	  function onErr(err) {
-		console.log(err);
-		return 1;
-	  }
+    function onErr(err) {
+        console.log(err);
+        return 1;
+      }
+}
 
-	return position;
+prompt.stop = function () {
+    if (prompt.stopped || !prompt.started) {
+        return;
+    }
+
+    stdin.destroy();
+    prompt.emit('stop');
+    prompt.stopped = true;
+    prompt.started = false;
+    prompt.paused = false;
+    return prompt;
 }
 
 //-------------------------------------------------------------------
 // Juego = sistema
 //-------------------------------------------------------------------
 
-while (!esElFinDeJuego(tablero)){
-	movimiento = solicitarMovimiento();
-	if (movimientoValido(movimiento)) {
-			mover(movimiento,tablero);
-			if ( hayTateti(tablero) ) {
-				// jugador actual gana
-				console.log('Juego terminado. Ganador', turno);
-			} else if( hayEmpate(tablero) ){
-				console.log('Juego terminado. No hay ganador');
-			} else {
-				cambiarTurno();
-			}
-	}
+//while (!esElFinDeJuego(tablero)){
+function jugar(tablero){		
+	
+	new Promise((resolve, err) => {
+		dibujarTablero(tablero) // Agregado
+		console.log('Es el turno de: ',turno) // Agregado
+		prompt.start();
+		resolve(solicitarMovimiento());
+		setTimeout(() => console.log("done"), 10000);
+	}).then((movimiento) => {
+		console.log('entro',movimiento);
+		if (movimientoValido(movimiento)) {
+				mover(movimiento,tablero,turno);
+				if ( hayTateti(tablero) ) {
+					// jugador actual gana
+					console.log('Juego terminado. Ganador', turno);
+				} else if( hayEmpate(tablero) ){
+					console.log('Juego terminado. No hay ganador');
+				} else {
+					cambiarTurno();
+				}
+		}
+	}).catch((err) => {
+		console.log('Se produjo un error, por favor reinicie el juego', err);
+	})
+			
 }
 
-console.log('FIN');
+jugar(tableroInicial);
+
+//console.log('FIN');
 
