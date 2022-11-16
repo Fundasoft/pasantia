@@ -46,4 +46,7 @@
 
 
 
-// app.nav(document.body);
+
+
+app.nav(document.getElementById("idNav"));
+// app.main(document.body);
